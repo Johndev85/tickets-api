@@ -10,12 +10,19 @@ const typeDefs = gql`
   }
 
   type Query {
-    hello: String!
     getAllTickets: [Ticket!]
+    getTicket(id: ID!): Ticket!
+  }
+
+  input TicketInput {
+    username: String
+    status: String
   }
 
   type Mutation {
-    createTicket(username: String!, status: String!): Ticket!
+    createTicket(ticket: TicketInput!): Ticket
+    deleteTicket(id: ID!): String
+    updateTicket(id: ID!, ticket: TicketInput!): Ticket
   }
 `
 
