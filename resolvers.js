@@ -1,13 +1,20 @@
+const Ticket = require("./models/ticket")
+
 const resolvers = {
   Query: {
     hello: () => "Hello world!",
-    // user: () => {
-    //   return {
-    //     id: 1,
-    //     name: "John Doe",
-    //     email: "email@test.com",
-    //   }
-    // },
+    getAllTickets: async () => {
+      const tickets = await Ticket.find()
+      return tickets
+    },
+  },
+  Mutation: {
+    createTicket: async (_, args) => {
+      const { username, status } = arg
+      const ticket = new Ticket({ username, status })
+      await ticket.save()
+      return ticket
+    },
   },
 }
 

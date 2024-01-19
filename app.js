@@ -3,8 +3,10 @@ const { ApolloServer } = require("apollo-server-express")
 
 const { typeDefs } = require("./typeDefs")
 const { resolvers } = require("./resolvers")
+const { connectDB } = require("./db")
 
 const app = express()
+connectDB()
 
 module.exports = app
 app.get("/", (req, res) => res.send("This is API-REST"))
