@@ -10,6 +10,7 @@ const { resolvers } = require("../graphql/resolvers")
 const { connectDB } = require("../utils/db")
 
 const { router } = require("./routes/routes.js")
+const { PORT } = require("./config.js")
 
 const app = express()
 app.use(cors())
@@ -33,8 +34,8 @@ async function start() {
 
   app.use("/api/*", (req, res) => res.status(404).send("404 Not found"))
 
-  app.listen(process.env.PORT, () => {
-    console.log("Server started on port", process.env.PORT)
+  app.listen(PORT, () => {
+    console.log("Server started on port", PORT)
   })
 }
 start()
