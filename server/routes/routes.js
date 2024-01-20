@@ -3,11 +3,20 @@ const Ticket = require("../../models/ticket")
 
 const router = Router()
 
-//get all tickets
+//get all tickets with pagination
 router.get("/tickets", async (req, res) => {
   try {
-    const tickets = await Ticket.find()
-    res.send(tickets)
+    const page = parseInt(req.query.page) || 1
+    const limit = parseInt(req.query.limit) || 10
+    const skip = (page - 1) * limit
+
+    const tickets = await Ticket.find().skip(skip).limit(limit)
+    const total = await Ticket.countDocuments()
+    res.send({
+      totalPages: Math.ceil(total / limit),
+      currentPage: page,
+      tickets,
+    })
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
