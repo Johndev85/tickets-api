@@ -1,10 +1,10 @@
-const { Schema, model } = require("mongoose")
+const { Schema, model, models } = require("mongoose")
 
 const ticketSchema = new Schema(
   {
     username: {
       type: String,
-      required: [true, "username is required"],
+      required: [false, "username is required"],
       minLength: [3, "username must be at least 3 characters"],
       maxLength: [30, "username must be at most 30 characters"],
     },
@@ -13,4 +13,4 @@ const ticketSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = model("Ticket", ticketSchema)
+module.exports = models.Ticket || model("Ticket", ticketSchema)

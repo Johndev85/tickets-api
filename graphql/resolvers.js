@@ -1,5 +1,5 @@
-const ticket = require("./models/ticket")
-const Ticket = require("./models/ticket")
+const ticket = require("../models/ticket")
+const Ticket = require("../models/ticket")
 
 const resolvers = {
   Query: {
