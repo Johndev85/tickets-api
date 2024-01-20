@@ -7,7 +7,9 @@ Restful API that allows create, delete, edit, and retrieve tickets with paginati
 
 It implements GraphQL as an alternative query language for the API, using Apollo Server for Express.
 
-Check out the site here: [https://notes-app-production-bd97.up.railway.app/](pending)
+API endpoint here: [https://tickets-api-production.up.railway.app/api/tickets](https://tickets-api-production.up.railway.app/api/tickets)
+
+GraphQL endpoint here: [https://tickets-api-production.up.railway.app/graphql](https://tickets-api-production.up.railway.app/graphql)
 
 ---
 
@@ -18,7 +20,7 @@ In this project, it demonstrates the ability to:
 - CRUD Operation on MongoDB.
 - Implement routes to consume resources from an API.
 - Pagination by query parameters.
-- Implement Graphql a new dynamic way of consulting resources.
+- Implement GraphQL a new dynamic way of consulting resources.
 - Server configuration through Nodejs with Express.
 
 ---
@@ -175,6 +177,7 @@ mongo localhost:27017
 - Nodejs with Express
 - MongoDB
 - GraphQL With Apollo Server Express
+- Railway deploy
 
 ---
 
